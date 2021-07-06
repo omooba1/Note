@@ -10,14 +10,15 @@
         android:id="@+id/titleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:ems="10"
+        android:hint="Title"
         android:inputType="textPersonName"
-        android:hint="Tile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="69dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/contentName"
@@ -26,7 +27,7 @@
         android:layout_marginTop="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+       android:hint="Content"
         app:layout_constraintEnd_toEndOf="@+id/titleName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/titleName"
@@ -36,20 +37,25 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="440dp"
         android:text="Save"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/contentName"
-        app:layout_constraintStart_toStartOf="@+id/contentName" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/contentName"
+        app:layout_constraintVertical_bias="0.115" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notes_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
+        android:layout_width="361dp"
+        android:layout_height="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveButton"
+        app:layout_constraintVertical_bias="0.334" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
