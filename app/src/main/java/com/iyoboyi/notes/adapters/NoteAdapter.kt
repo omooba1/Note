@@ -6,12 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.iyoboyi.notes.databinding.NoteItemBinding
 import com.iyoboyi.notes.models.Note
 
-class NoteAdapter(private val notes: List<Note>) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(private val notes: List<Note>, val clicker: (Note) -> Unit) :
+    RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
-    class NoteViewHolder(private val binding: NoteItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class NoteViewHolder(private val binding: NoteItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(note: Note) {
             binding.idView.text = note.id.toString()
             binding.titleView.text = note.title
+            clicker(note)
         }
     }
 
@@ -28,4 +31,8 @@ class NoteAdapter(private val notes: List<Note>) : RecyclerView.Adapter<NoteAdap
     override fun getItemCount(): Int {
         return notes.size
     }
+
+//    interface OnNoteItemClickListener{
+//        fun onClick(note: Note)
+//    }
 }
