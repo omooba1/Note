@@ -11,10 +11,14 @@ class NoteAdapter(private val notes: List<Note>, val clicker: (Note) -> Unit) :
 
     inner class NoteViewHolder(private val binding: NoteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(note: Note) {
-            binding.idView.text = note.id.toString()
-            binding.titleView.text = note.title
-            clicker(note)
+            binding.apply {
+                idView.text = note.id.toString()
+                titleView.text = note.title
+                root.setOnClickListener { clicker(note) }
+            }
+
         }
     }
 
