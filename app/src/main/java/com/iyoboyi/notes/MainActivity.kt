@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.iyoboyi.notes.adapters.NoteAdapter
 import com.iyoboyi.notes.databinding.ActivityMainBinding
 import com.iyoboyi.notes.models.Note
@@ -27,11 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //instantiating database
-        database = Room.databaseBuilder(
-            applicationContext,
-            NoteDatabase::class.java,
-            "notes_database"
-        ).allowMainThreadQueries().build()
+        database = NoteDatabase.getInstance(applicationContext)
 
         //instantiating viewModels
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
